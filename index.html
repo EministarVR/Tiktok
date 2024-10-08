@@ -3,97 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login to TikTok to discover the latest content.">
+    <meta name="keywords" content="TikTok, Login, Social Media">
+    <meta name="author" content="Eministar">
     <title>Login | TikTok</title>
     <style>
-        body, html {
+        /* Allgemeine Einstellungen */
+        * {
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f1f2f3;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
         }
+
+        /* Container */
         .login-container {
-            width: 400px;
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 24px;
+            width: 100%;
+            max-width: 400px;
+            background-color: white;
+            border-radius: 12px;
+            padding: 32px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            animation: scaleIn 0.5s ease forwards;
         }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .login-container:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Kopfbereich */
         .login-header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            text-align: center;
             margin-bottom: 24px;
         }
+
         .login-header img {
             width: 48px;
             height: 48px;
-        }
-        .login-header h1 {
-            font-size: 24px;
-            margin-left: 12px;
-            color: #000;
-        }
-        .input-group {
             margin-bottom: 16px;
+            animation: bounceIn 0.8s ease-in-out;
         }
+
+        @keyframes bounceIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .login-header h1 {
+            font-size: 26px;
+            color: #000;
+            font-weight: 600;
+        }
+
+        /* Eingabegruppen */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
         .input-group label {
             display: block;
             margin-bottom: 8px;
-            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
         }
+
         .input-group input {
             width: 100%;
-            padding: 12px;
+            padding: 12px 16px;
             border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        .login-btn {
-            background-color: #FE2C55;
-            color: white;
-            border: none;
-            padding: 12px;
-            width: 100%;
-            border-radius: 4px;
+            border-radius: 8px;
             font-size: 16px;
-            cursor: pointer;
-            transition: background 0.3s;
+            transition: border-color 0.3s ease;
         }
+
+        .input-group input:focus {
+            border-color: #fe2c55;
+            outline: none;
+            box-shadow: 0 0 8px rgba(254, 44, 85, 0.3);
+        }
+
+        /* Anmeldebutton */
+        .login-btn {
+            width: 100%;
+            padding: 14px 0;
+            border: none;
+            border-radius: 8px;
+            background-color: #fe2c55;
+            color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
         .login-btn:hover {
             background-color: #e82445;
         }
+
+        .login-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Footer-Links */
         .login-footer {
             text-align: center;
-            margin-top: 16px;
+            margin-top: 20px;
             font-size: 14px;
         }
+
         .login-footer a {
-            color: #FE2C55;
+            color: #fe2c55;
             text-decoration: none;
+            transition: color 0.3s ease;
         }
+
         .login-footer a:hover {
-            text-decoration: underline;
+            color: #d92044;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 600px) {
+            .login-container {
+                padding: 24px;
+                max-width: 90%;
+            }
+
+            .login-header h1 {
+                font-size: 22px;
+            }
+
+            .login-header img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .input-group input {
+                padding: 10px 14px;
+                font-size: 14px;
+            }
+
+            .login-btn {
+                font-size: 16px;
+                padding: 12px 0;
+            }
         }
     </style>
 </head>
 <body>
     <div class="login-container">
         <div class="login-header">
-            <img src="https://www.pngkit.com/png/full/72-729855_tik-tok-icon-tiktok-logo-transparent-background.png" alt="TikTok Logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/TikTok_logo.svg/512px-TikTok_logo.svg.png" alt="TikTok Logo">
             <h1>TikTok Login</h1>
         </div>
         <div class="input-group">
             <label for="username">Username or Email</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" placeholder="Enter your username or email" required>
         </div>
         <div class="input-group">
             <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
         </div>
         <button class="login-btn" onclick="login()">Login</button>
         <div class="login-footer">
@@ -105,8 +203,9 @@
         function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
+
             if (username && password) {
-                alert('Login successful!\nUsername: ' + username + '\nPassword: ' + password);
+                alert(`Login successful!\nUsername: ${username}\nPassword: ${password}`);
             } else {
                 alert('Please fill in both fields.');
             }
